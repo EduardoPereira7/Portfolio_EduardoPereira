@@ -1,0 +1,37 @@
+.circle {
+  width: 305px;
+  height: 305px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.circle img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.circle-around2 {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 3px inherit var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-around1 {
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  border: 5px inherit var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,42 @@
+@import "../../utils/fonts.css";
+
+.presentation {
+  display: flex;
+  flex-direction: row;
+  padding: 100px 70px;
+  justify-content: space-between;
+  align-items: center;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--white);
+}
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--white);
+}
+.developerContainer {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.developer {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--primary);
+}
+.textPresentation {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  margin: 0;
+  color: var(--white);
+  width: 65%;
+}

@@ -1,0 +1,24 @@
+@import "../../utils/fonts.css";
+
+.btn-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  gap: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-navigation:active {
+  background-color: rgba(26, 25, 25, 0.1);
+}
+
+.navText {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: var(--white);
+}
