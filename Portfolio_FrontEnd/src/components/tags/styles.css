@@ -1,0 +1,16 @@
+.tagContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: rgb(34, 34, 34);
+  width: auto;
+  height: 22px;
+  padding: 4px 10px 4px 10px;
+}
+.tagText {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 5px;
+}

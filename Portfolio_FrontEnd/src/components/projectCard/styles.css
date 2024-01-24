@@ -1,0 +1,83 @@
+.projectCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  height: auto;
+  border-radius: 7px;
+  background-color: #252525;
+  border-bottom: 4px solid var(--primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+.projectCardImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.projectName {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 14px;
+}
+.divider {
+  width: 70%;
+  height: 5px;
+  background-color: rgb(58, 207, 58);
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.description {
+  color: var(--white);
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+}
+.btnOpenProject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  cursor: pointer;
+  border: 0px;
+  position: relative;
+  overflow: hidden;
+}
+.btnOpenProject:hover {
+  background: linear-gradient(to top left, transparent 50%, #451e72 50%);
+  background-size: 200% 200%;
+  transition: background-position 0.5s;
+}
+.btnOpenProject::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #451e72;
+  z-index: -1;
+  transition: transform 0.5s;
+}
+.btnOpenProject:hover::before {
+  transform: translateY(100%);
+}
+.TagsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 7px;
+}

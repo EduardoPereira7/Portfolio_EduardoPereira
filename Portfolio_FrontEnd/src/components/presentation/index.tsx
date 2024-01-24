@@ -21,10 +21,10 @@ const Presentation = () => {
           text="Contacte-me"
           navigation="about"
           containerStyle={containerStyleBtn}
-          textStyle={{ fontSize: "16px" }}
+          textStyle={{ fontSize: "16.5px" }}
         />
       </div>
-      <div className="img">
+      <div className="imgProfile">
         <Circle />
       </div>
     </div>
@@ -35,7 +35,7 @@ const containerStyleBtn = {
   marginTop: "25px",
   width: "160px",
   height: "55px",
-  backgroundColor: "#451e72",
+  backgroundColor: "#5913aa",
   alignItems: "center",
   justifyContent: "center",
 };
