@@ -14,7 +14,16 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            if (Person::all()->count() > 0) {
+                $people = Person::with('projects', 'technologies')->get();
+                return response()->json($people, 200);
+            } else {
+                return response()->json(['message' => 'Nenhuma pessoa encontrada'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao listar pessoas', 'error' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -35,7 +44,23 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $person = new Person();
+            $person->name = $request->name;
+            $person->email = $request->email;
+            $person->photo = $request->photo;
+            $person->phone = $request->phone;
+            $person->linkedin = $request->linkedin;
+            $person->github = $request->github;
+            $person->certifications = $request->certifications;
+            $person->languages = $request->languages;
+            $person->save();
+
+            $person->technologies()->sync($request->technologies);
+            return response()->json($person->load('technologies'), 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao criar pessoa', 'error' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -46,7 +71,11 @@ class PersonController extends Controller
      */
     public function show(Person $person)
     {
-        //
+        try {
+            return response()->json($person->load('technologies'), 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao exibir pessoa', 'error' => $e->getMessage()], 500);
+        }
     }
 
     /**
