@@ -1,10 +1,11 @@
+import AtecLogo from "../../assets/images/atec_logo.jpg";
 import Tag from "../tags";
 import "./styles.css";
 
 const ProjectCard = () => {
   return (
     <div className="projectCardContainer">
-      <img src="" alt="" className="projectCardImg" />
+      <img src={AtecLogo} alt="" className="projectCardImg" />
       <span className="projectName">Nome do projeto</span>
       <div className="divider" />
       <span className="description">

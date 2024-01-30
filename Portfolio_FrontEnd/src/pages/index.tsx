@@ -1,3 +1,4 @@
+import LanguageCard from "../components/LanguageCard";
 import BtnNavigation from "../components/btnNavigation";
 import Divider from "../components/divider";
 import Navbar from "../components/navBar";
@@ -12,7 +13,11 @@ function App() {
       <div className="bodyHome">
         <Presentation />
         <Divider text="Projetos" />
-        <ProjectCard />
+        <div className="row">
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </div>
         <BtnNavigation
           text={"Ver mais"}
           navigation={""}
@@ -23,7 +28,12 @@ function App() {
             letterSpacing: "0.5px",
           }}
         />
-        <Divider text="Projetos" />
+        <Divider text="Habilidades" />
+        <div className="row">
+          <LanguageCard language="JAVASCRYPT" level={50} color={"yellow"} />
+          <LanguageCard language="TYPESCRIPT" level={50} color={"blue"} />
+          <LanguageCard language="C++" level={50} color={"pink"} />
+        </div>
       </div>
     </>
   );
