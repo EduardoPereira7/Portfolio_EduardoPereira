@@ -117,6 +117,11 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        //
+        try {
+            $person->delete();
+            return response()->json(['message' => 'Pessoa excluída com sucesso'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao excluir pessoa', 'error' => $e->getMessage()], 500);
+        }
     }
 }
