@@ -16,10 +16,14 @@ class TechnologySeeder extends Seeder
             'PHP', 'JavaScript', 'HTML', 'CSS', 'C#', 'C++', 'React', 'React Native', 'Java', 'Python', 'Ruby', 'Swift', 'Kotlin', 'Rust', 'Go', 'TypeScript', 'SQL', 'C',
             'Objective-C', 'Perl', 'F#', 'Assembly', 'PowerShell', 'TypeScript', 'Visual Basic', 'Dart', 'Kotlin', 'Bootstrap', 'Outras'
         ];
+        $colors = [
+            '#4F5D95', '#F0DB4F', '#E44D26', '#264DE4', '#A4A9B7', '#239120', '#F7DF1E', '#007396', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26'
+        ];
 
         foreach ($technologies as $technology) {
             Technology::create([
-                'name' => $technology
+                'name' => $technology,
+                'color' => array_shift($colors)
             ]);
         }
     }

@@ -56,7 +56,15 @@ class PersonController extends Controller
             $person->languages = $request->languages;
             $person->save();
 
-            $person->technologies()->sync($request->technologies);
+            $technologiesWithLevels = [];
+            foreach ($request->technologies as $technologyId) {
+                $level = $request->input("technology_levels.$technologyId", 1);
+
+                $technologiesWithLevels[$technologyId] = ['level' => $level];
+            }
+
+            $person->technologies()->sync($technologiesWithLevels);
+
             return response()->json($person->load('technologies'), 201);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erro ao criar pessoa', 'error' => $e->getMessage()], 500);

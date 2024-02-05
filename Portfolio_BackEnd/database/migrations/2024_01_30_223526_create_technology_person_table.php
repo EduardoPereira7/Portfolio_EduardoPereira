@@ -17,6 +17,7 @@ class CreateTechnologyPersonTable extends Migration
             $table->id();
             $table->unsignedBigInteger('technology_id');
             $table->unsignedBigInteger('person_id');
+            $table->unsignedTinyInteger('level');
             $table->timestamps();
         });
     }
