@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->foreignId('person_id')->constrained();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('link');
             $table->string('image');
             $table->timestamps();
