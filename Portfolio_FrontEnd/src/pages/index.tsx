@@ -4,9 +4,18 @@ import Divider from "../components/divider";
 import Navbar from "../components/navBar";
 import Presentation from "../components/presentation";
 import ProjectCard from "../components/projectCard";
+import { usePersonContext } from "../contexts/PersonContext";
 import "../styles/index.css";
 
 function App() {
+  const { person, loading, error } = usePersonContext();
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+  if (error) {
+    return <h1>Error: {error}</h1>;
+  }
   return (
     <>
       <Navbar />
@@ -30,9 +39,22 @@ function App() {
         />
         <Divider text="Habilidades" />
         <div className="row">
-          <LanguageCard language="JAVASCRYPT" level={50} color={"yellow"} />
-          <LanguageCard language="TYPESCRIPT" level={50} color={"blue"} />
-          <LanguageCard language="C++" level={50} color={"pink"} />
+          {person?.technologies.map((technology) => (
+            <LanguageCard
+              key={technology.id}
+              language={technology.name}
+              level={technology.pivot.level}
+              color={technology.color}
+            />
+          ))}
+          <span className="languageNote">
+            O nível de avaliação apresentado em cada linguagem de programação é
+            referente à nota atribuída em cada UFCD na{" "}
+            <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
+              Atec
+            </a>
+            .
+          </span>
         </div>
       </div>
     </>

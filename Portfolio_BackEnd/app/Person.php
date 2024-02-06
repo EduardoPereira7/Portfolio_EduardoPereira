@@ -8,6 +8,8 @@ class Person extends Model
 {
     protected $fillable = [
         'name',
+        'status',
+        'description',
         'email',
         'photo',
         'phone',

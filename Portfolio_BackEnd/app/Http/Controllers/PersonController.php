@@ -47,6 +47,8 @@ class PersonController extends Controller
         try {
             $person = new Person();
             $person->name = $request->name;
+            $person->status = $request->status;
+            $person->description = $request->description;
             $person->email = $request->email;
             $person->photo = $request->photo;
             $person->phone = $request->phone;
