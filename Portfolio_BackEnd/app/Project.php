@@ -11,7 +11,7 @@ class Project extends Model
         'name',
         'description',
         'link',
-        'image'
+        'thumbnail'
     ];
 
     public function person()

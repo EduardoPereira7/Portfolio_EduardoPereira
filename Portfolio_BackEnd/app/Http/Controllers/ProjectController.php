@@ -33,7 +33,7 @@ class ProjectController extends Controller
                         'name' => $project->name,
                         'description' => $project->description,
                         'link' => $project->link,
-                        'image' => $project->image,
+                        'thumbnail' => $project->thumbnail,
                         'technologies' => $technologies
                     ];
                 });
@@ -68,7 +68,7 @@ class ProjectController extends Controller
             $project->person_id = $request->person_id;
             $project->description = $request->description;
             $project->link = $request->link;
-            $project->image = $request->image;
+            $project->thumbnail = $request->thumbnail;
             $project->save();
 
             $project->technologies()->sync($request->technologies);
@@ -120,7 +120,7 @@ class ProjectController extends Controller
             $project->person_id = $request->person_id;
             $project->description = $request->description;
             $project->link = $request->link;
-            $project->image = $request->image;
+            $project->thumbnail = $request->thumbnail;
             $project->save();
 
             $project->technologies()->sync($request->technologies);
