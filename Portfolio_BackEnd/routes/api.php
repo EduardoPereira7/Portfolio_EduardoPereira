@@ -32,3 +32,8 @@ Route::apiResource(
     'technologies',
     'TechnologyController'
 );
+
+Route::apiResource(
+    'images',
+    'ImageController'
+);
