@@ -16,7 +16,7 @@ class PersonController extends Controller
     {
         try {
             if (Person::all()->count() > 0) {
-                $people = Person::with('projects', 'technologies')->get();
+                $people = Person::with('technologies')->get();
                 return response()->json($people, 200);
             } else {
                 return response()->json(['message' => 'Nenhuma pessoa encontrada'], 404);
@@ -124,6 +124,39 @@ class PersonController extends Controller
             return response()->json(['message' => 'Pessoa excluída com sucesso'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erro ao excluir pessoa', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function projects(Person $person)
+    {
+        try {
+            $projects = $person->projects()->with('technologies')->get();
+
+            if ($projects->isEmpty()) {
+                return response()->json(['message' => 'Nenhum projeto encontrado para esta pessoa'], 404);
+            }
+
+            $formattedProjects = $projects->map(function ($project) {
+                $technologies = $project->technologies->map(function ($technology) {
+                    return [
+                        'id' => $technology->id,
+                        'name' => $technology->name
+                    ];
+                });
+
+                return [
+                    'id' => $project->id,
+                    'name' => $project->name,
+                    'description' => $project->description,
+                    'link' => $project->link,
+                    'thumbnail' => $project->thumbnail,
+                    'technologies' => $technologies
+                ];
+            });
+
+            return response()->json($formattedProjects, 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao buscar projetos da pessoa', 'error' => $e->getMessage()], 500);
         }
     }
 }

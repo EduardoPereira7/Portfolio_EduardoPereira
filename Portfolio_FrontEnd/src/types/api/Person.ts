@@ -1,15 +1,4 @@
-export interface Technology {
-  id: number;
-  name: string;
-  color: string;
-  pivot: {
-    person_id: number;
-    technology_id: number;
-    level: number;
-    created_at: string;
-    updated_at: string;
-  };
-}
+import { Technology } from "./Technology";
 
 export interface Person {
   id: number;
@@ -25,6 +14,5 @@ export interface Person {
   languages: string;
   created_at: string;
   updated_at: string;
-  projects: any[]; //! Adicione o tipo correto
   technologies: Technology[];
 }

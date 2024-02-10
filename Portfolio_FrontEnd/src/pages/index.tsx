@@ -5,17 +5,19 @@ import Navbar from "../components/navBar";
 import Presentation from "../components/presentation";
 import ProjectCard from "../components/projectCard";
 import { usePersonContext } from "../contexts/PersonContext";
+import { useProjects } from "../hooks/useProjects";
 import "../styles/index.css";
 
 function App() {
   const { person, loading, error } = usePersonContext();
-
+  const { projects } = useProjects(person?.id || -1);
   if (loading) {
     return <h1>Loading...</h1>;
   }
   if (error) {
     return <h1>Error: {error}</h1>;
   }
+
   return (
     <>
       <Navbar />
@@ -23,9 +25,21 @@ function App() {
         <Presentation />
         <Divider text="Projetos" />
         <div className="row">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {projects?.map(
+            (project) =>
+              project && (
+                <ProjectCard
+                  key={project.id}
+                  name={project.name}
+                  description={project.description}
+                  thumbnail={project.thumbnail}
+                  link={project.link}
+                  technologies={project.technologies.map(
+                    (technology) => technology.name
+                  )}
+                />
+              )
+          )}
         </div>
         <BtnNavigation
           text={"Ver mais"}
@@ -37,6 +51,8 @@ function App() {
             letterSpacing: "0.5px",
           }}
         />
+        <br />
+        <br />
         <Divider text="Habilidades" />
         <div className="row">
           {person?.technologies.map((technology) => (
