@@ -11,7 +11,7 @@ class Project extends Model
         'name',
         'description',
         'link',
-        'image'
+        'thumbnail'
     ];
 
     public function person()
@@ -22,5 +22,10 @@ class Project extends Model
     public function technologies()
     {
         return $this->belongsToMany(Technology::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

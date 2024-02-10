@@ -23,6 +23,8 @@ Route::apiResource(
     'PersonController'
 );
 
+Route::get('people/{person}/projects', 'PersonController@projects');
+
 Route::apiResource(
     'projects',
     'ProjectController'
@@ -31,4 +33,9 @@ Route::apiResource(
 Route::apiResource(
     'technologies',
     'TechnologyController'
+);
+
+Route::apiResource(
+    'images',
+    'ImageController'
 );

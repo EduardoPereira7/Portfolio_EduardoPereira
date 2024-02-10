@@ -1,23 +1,30 @@
-import AtecLogo from "../../assets/images/atec_logo.jpg";
 import Tag from "../tags";
 import "./styles.css";
 
-const ProjectCard = () => {
+interface ProjectCardProps {
+  name: string;
+  description: string;
+  thumbnail: string;
+  link: string;
+  technologies: string[];
+}
+
+const ProjectCard = (props: ProjectCardProps) => {
+  const truncatedDescription =
+    props.description.length > 200
+      ? props.description.slice(0, 160) + "..."
+      : props.description;
+
   return (
     <div className="projectCardContainer">
-      <img src={AtecLogo} alt="" className="projectCardImg" />
-      <span className="projectName">Nome do projeto</span>
+      <img src={props.thumbnail} alt="" className="projectCardImg" />
+      <span className="projectName">{props.name}</span>
       <div className="divider" />
-      <span className="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos iusto eum
-        in neque doloribus
-      </span>
+      <span className="description">{truncatedDescription}</span>
       <div className="TagsContainer">
-        <Tag text={"C++"} />
-        <Tag text={"HTML"} />
-        <Tag text={"CSS"} />
-        <Tag text={"React Native"} />
-        <Tag text={"C#"} />
+        {props.technologies.map((technology) => (
+          <Tag text={`• ${technology}`} />
+        ))}
       </div>
       <button className="btnOpenProject">Ver Projeto</button>
     </div>

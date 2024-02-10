@@ -8,6 +8,8 @@ class Person extends Model
 {
     protected $fillable = [
         'name',
+        'status',
+        'description',
         'email',
         'photo',
         'phone',
@@ -24,6 +26,8 @@ class Person extends Model
 
     public function technologies()
     {
-        return $this->belongsToMany(Technology::class);
+        return $this->belongsToMany(Technology::class, 'person_technology')
+            ->withPivot('level')
+            ->withTimestamps();
     }
 }
