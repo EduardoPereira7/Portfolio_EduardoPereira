@@ -27,3 +27,6 @@
   font-weight: bold;
   color: var(--primary);
 }
+.no-underline {
+  text-decoration: none;
+}

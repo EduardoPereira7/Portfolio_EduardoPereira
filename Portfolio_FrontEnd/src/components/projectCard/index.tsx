@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import Tag from "../tags";
 import "./styles.css";
 
 interface ProjectCardProps {
+  id: number;
   name: string;
   description: string;
   thumbnail: string;
@@ -22,11 +24,13 @@ const ProjectCard = (props: ProjectCardProps) => {
       <div className="divider" />
       <span className="description">{truncatedDescription}</span>
       <div className="TagsContainer">
-        {props.technologies.map((technology) => (
-          <Tag text={`• ${technology}`} />
+        {props.technologies.map((technology, index) => (
+          <Tag key={index} text={`• ${technology}`} />
         ))}
       </div>
-      <button className="btnOpenProject">Ver Projeto</button>
+      <Link to={`/project-details/${props.id}`} className="link_verMaisProject">
+        <button className="btnOpenProject">Ver Projeto</button>
+      </Link>
     </div>
   );
 };

@@ -18,8 +18,7 @@ export const useProjects = (personId: number) => {
         setLoading(false);
       }
     };
-
-    fetchProjects();
+    if (personId !== -1) fetchProjects();
   }, [personId]);
 
   return { projects, loading, error };
