@@ -30,6 +30,8 @@ Route::apiResource(
     'ProjectController'
 );
 
+Route::get('projects/{project}/images', 'ProjectController@images');
+
 Route::apiResource(
     'technologies',
     'TechnologyController'
