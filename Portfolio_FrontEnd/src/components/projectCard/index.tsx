@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
+import { useProjectContext } from "../../contexts/ProjectInspect";
+import { ProjectCardProps } from "../../types/ProjectCardProps";
 import Tag from "../tags";
 import "./styles.css";
 
-interface ProjectCardProps {
-  id: number;
-  name: string;
-  description: string;
-  thumbnail: string;
-  link: string;
-  technologies: string[];
-}
-
 const ProjectCard = (props: ProjectCardProps) => {
+  const { setProjectDetails } = useProjectContext();
   const truncatedDescription =
     props.description.length > 200
       ? props.description.slice(0, 160) + "..."
       : props.description;
+
+  const saveProjectDetails = () => {
+    setProjectDetails(props);
+  };
 
   return (
     <div className="projectCardContainer">
@@ -29,7 +27,9 @@ const ProjectCard = (props: ProjectCardProps) => {
         ))}
       </div>
       <Link to={`/project-details/${props.id}`} className="link_verMaisProject">
-        <button className="btnOpenProject">Ver Projeto</button>
+        <button onClick={saveProjectDetails} className="btnOpenProject">
+          Ver Projeto
+        </button>
       </Link>
     </div>
   );
