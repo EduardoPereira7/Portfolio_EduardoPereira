@@ -13,13 +13,12 @@ export const useProjects = (personId: number) => {
         const data = await getProjects(personId);
         setProjects(data);
       } catch (err) {
-        setError("Erro ao obter dados da API");
+        setError("Erro ao obter os projetos da API");
       } finally {
         setLoading(false);
       }
     };
-
-    fetchProjects();
+    if (personId !== -1) fetchProjects();
   }, [personId]);
 
   return { projects, loading, error };

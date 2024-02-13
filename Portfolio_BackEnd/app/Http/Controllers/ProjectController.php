@@ -138,13 +138,37 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-
         try {
             $project->technologies()->detach();
             $project->delete();
             return response()->json(['message' => 'Projeto deletado com sucesso'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erro ao deletar projeto', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function images($id)
+    {
+        $project = Project::find($id);
+
+        if (!$project) {
+            return response()->json(['message' => 'Projeto não encontrado'], 404);
+        }
+
+        try {
+            $images = $project->images;
+            if ($images->isEmpty()) {
+                return response()->json(['message' => 'Nenhuma imagem encontrada para este projeto'], 404);
+            }
+            $formattedImages = $images->map(function ($image) {
+                return [
+                    'id' => $image->id,
+                    'link' => $image->link
+                ];
+            });
+            return response()->json($formattedImages, 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao listar imagens do projeto', 'error' => $e->getMessage()], 500);
         }
     }
 }

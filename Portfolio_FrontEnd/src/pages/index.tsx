@@ -1,7 +1,6 @@
 import LanguageCard from "../components/LanguageCard";
 import BtnNavigation from "../components/btnNavigation";
 import Divider from "../components/divider";
-import Navbar from "../components/navBar";
 import Presentation from "../components/presentation";
 import ProjectCard from "../components/projectCard";
 import { usePersonContext } from "../contexts/PersonContext";
@@ -11,6 +10,7 @@ import "../styles/index.css";
 function App() {
   const { person, loading, error } = usePersonContext();
   const { projects } = useProjects(person?.id || -1);
+
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -20,7 +20,6 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <div className="bodyHome">
         <Presentation />
         <Divider text="Projetos" />
@@ -30,6 +29,7 @@ function App() {
               project && (
                 <ProjectCard
                   key={project.id}
+                  id={project.id}
                   name={project.name}
                   description={project.description}
                   thumbnail={project.thumbnail}
@@ -41,9 +41,10 @@ function App() {
               )
           )}
         </div>
+
         <BtnNavigation
           text={"Ver mais"}
-          navigation={""}
+          navigation={"/projects"}
           containerStyle={btnContainerStyle}
           textStyle={{
             color: "white",
@@ -51,6 +52,7 @@ function App() {
             letterSpacing: "0.5px",
           }}
         />
+
         <br />
         <br />
         <Divider text="Habilidades" />

@@ -1,0 +1,82 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+  border-radius: 50px;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  border-radius: 20px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.arrows {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.arrow {
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.image-counter {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.active-dot {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.dot,
+.arrow,
+.image {
+  user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .dot {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+}

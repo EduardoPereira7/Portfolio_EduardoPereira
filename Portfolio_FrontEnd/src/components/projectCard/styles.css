@@ -81,3 +81,10 @@
   flex-wrap: wrap;
   gap: 7px;
 }
+.link_verMaisProject {
+  color: var(--white);
+  font-size: 14px;
+  width: 100%;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}

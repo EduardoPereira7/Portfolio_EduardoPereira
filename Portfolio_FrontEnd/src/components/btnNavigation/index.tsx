@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BtnNavigationProps from "../../types/BtnNavigationProps";
 import "./styles.css";
 
@@ -12,11 +13,17 @@ const BtnNavigation = ({
   };
 
   return (
-    <button className="btn-navigation" style={containerStyle} onClick={onClick}>
-      <span className="navText" style={textStyle}>
-        {text}
-      </span>
-    </button>
+    <Link to={navigation} style={{ textDecoration: "none" }}>
+      <button
+        className="btn-navigation"
+        style={containerStyle}
+        onClick={onClick}
+      >
+        <span className="navText" style={textStyle}>
+          {text}
+        </span>
+      </button>
+    </Link>
   );
 };
 

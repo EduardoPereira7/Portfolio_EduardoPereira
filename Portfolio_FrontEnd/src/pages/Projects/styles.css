@@ -1,0 +1,40 @@
+.ProjectsPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 4vw;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+.projectPage_title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  align-self: start;
+  margin-bottom: 20px;
+}
+.projectPage_projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+@media screen and (max-width: 1032px) {
+  .ProjectsPageContainer {
+    padding: 0 2vw 50px 2vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .projectPage_projects {
+    grid-template-columns: repeat(auto-fill, minmax(45vw, 1fr));
+  }
+}
+@media screen and (max-width: 500px) {
+  .projectPage_title {
+    font-size: 2rem;
+  }
+  .projectPage_description {
+    font-size: 0.9rem;
+  }
+}
