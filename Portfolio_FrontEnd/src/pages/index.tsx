@@ -41,9 +41,10 @@ function App() {
               )
           )}
         </div>
+
         <BtnNavigation
           text={"Ver mais"}
-          navigation={""}
+          navigation={"/projects"}
           containerStyle={btnContainerStyle}
           textStyle={{
             color: "white",
@@ -51,6 +52,7 @@ function App() {
             letterSpacing: "0.5px",
           }}
         />
+
         <br />
         <br />
         <Divider text="Habilidades" />
