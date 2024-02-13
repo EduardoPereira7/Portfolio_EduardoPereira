@@ -5,6 +5,7 @@
   gap: 20px;
   padding: 0 4vw;
   margin-top: 50px;
+  padding-bottom: 50px;
 }
 .projectPage_title {
   font-size: 2.5rem;
@@ -15,13 +16,13 @@
 }
 .projectPage_projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
 }
 
 @media screen and (max-width: 1032px) {
   .ProjectsPageContainer {
-    padding: 0 2vw;
+    padding: 0 2vw 50px 2vw;
   }
 }
 @media screen and (max-width: 700px) {
