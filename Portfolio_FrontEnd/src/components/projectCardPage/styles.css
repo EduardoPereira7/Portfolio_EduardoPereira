@@ -80,11 +80,17 @@
   }
 }
 
-@media screen and (max-width: 730px) {
-  .projectCard_Container {
-    max-width: auto;
+@media screen and (max-width: 500px) {
+  .title_projectPage {
+    font-size: 1.2rem;
   }
-  .projectPage_projects {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .projectPage_description {
+    font-size: 0.9rem;
+  }
+  .thumbnail_projectPage {
+    height: 250px;
+  }
+  .btnSeeProject {
+    font-size: 0.9rem;
   }
 }

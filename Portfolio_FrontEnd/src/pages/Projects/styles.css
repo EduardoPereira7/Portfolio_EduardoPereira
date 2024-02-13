@@ -24,3 +24,16 @@
     padding: 0 2vw;
   }
 }
+@media screen and (max-width: 700px) {
+  .projectPage_projects {
+    grid-template-columns: repeat(auto-fill, minmax(45vw, 1fr));
+  }
+}
+@media screen and (max-width: 500px) {
+  .projectPage_title {
+    font-size: 2rem;
+  }
+  .projectPage_description {
+    font-size: 0.9rem;
+  }
+}
