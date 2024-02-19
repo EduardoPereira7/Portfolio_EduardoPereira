@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/navBar/index.tsx";
 import { PersonProvider } from "./contexts/PersonContext.tsx";
 import { ProjectProvider } from "./contexts/ProjectInspect.tsx";
+import AboutMe from "./pages/AboutMe/index.tsx";
 import ProjectDetailsPage from "./pages/ProjectDetails/index.tsx";
 import ProjectsPage from "./pages/Projects/index.tsx";
 import App from "./pages/index.tsx";
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               element={<ProjectDetailsPage />}
             />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/about" element={<AboutMe />} />
           </Routes>
         </ProjectProvider>
       </PersonProvider>

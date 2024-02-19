@@ -11,7 +11,7 @@ const Navbar = () => {
         </span>
       </Link>
       <div className="navigation">
-        <BtnNavigation text="Sobre mim" navigation="/sobremim" />
+        <BtnNavigation text="Sobre mim" navigation="/about" />
         <BtnNavigation text="Projetos" navigation={"/projects"} />
         <BtnNavigation text="Habilidades" navigation="/sobremim" />
         <BtnNavigation text="Contacto" navigation="/sobremim" />

@@ -1,0 +1,11 @@
+.title_pages_text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.title_pages_row {
+  margin-bottom: 20px;
+  height: 3px;
+  background-color: var(--primary);
+}

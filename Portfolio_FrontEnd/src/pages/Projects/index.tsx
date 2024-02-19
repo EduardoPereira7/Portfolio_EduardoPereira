@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCardPage from "../../components/projectCardPage";
+import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
 import { useProjects } from "../../hooks/useProjects";
 import "./styles.css";
@@ -11,7 +12,7 @@ const ProjectsPage: React.FC = () => {
   if (error) return <div>{error}</div>;
   return (
     <div className="ProjectsPageContainer">
-      <span className="projectPage_title">Projetos</span>
+      <TitlePages title="Projetos" />
       <div className="projectPage_projects">
         {projects?.map((project) => (
           <ProjectCardPage project={project} key={project.id} />

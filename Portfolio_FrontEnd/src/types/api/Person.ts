@@ -4,7 +4,8 @@ export interface Person {
   id: number;
   name: string;
   status: string;
-  description: string;
+  summary: string;
+  about: string;
   email: string;
   photo: string;
   phone: string;

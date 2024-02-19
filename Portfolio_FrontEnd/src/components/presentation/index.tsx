@@ -14,7 +14,7 @@ const Presentation = () => {
         <div className="developerContainer">
           <span className="developer">{["< / ", person?.status, " >"]}</span>
         </div>
-        <p className="textPresentation">{person?.description}</p>
+        <p className="textPresentation">{person?.summary}</p>
         <BtnNavigation
           text="Contacte-me"
           navigation="about"
