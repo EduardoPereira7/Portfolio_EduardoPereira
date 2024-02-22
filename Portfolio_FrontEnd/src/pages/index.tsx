@@ -41,7 +41,6 @@ function App() {
               )
           )}
         </div>
-
         <BtnNavigation
           text={"Ver mais"}
           navigation={"/projects"}
@@ -52,7 +51,6 @@ function App() {
             letterSpacing: "0.5px",
           }}
         />
-
         <br />
         <br />
         <Divider text="Habilidades" />
@@ -65,15 +63,27 @@ function App() {
               color={technology.color}
             />
           ))}
-          <span className="languageNote">
-            O nível de avaliação apresentado em cada linguagem de programação é
-            referente à nota atribuída em cada UFCD na{" "}
-            <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
-              Atec
-            </a>
-            .
-          </span>
         </div>
+        <br />
+        <span className="languageNote">
+          O nível de avaliação apresentado em cada linguagem de programação é
+          referente à nota atribuída em cada UFCD na{" "}
+          <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
+            Atec
+          </a>
+          .
+        </span>
+        <br />
+        <BtnNavigation
+          text={"Ver todas as habilidades"}
+          navigation={"/skills"}
+          containerStyle={btnContainerStyle}
+          textStyle={{
+            color: "white",
+            fontSize: "17px",
+            letterSpacing: "0.5px",
+          }}
+        />
       </div>
     </>
   );
@@ -82,11 +92,13 @@ function App() {
 export default App;
 
 const btnContainerStyle = {
-  position: "relative",
-  top: "50px",
-  width: "150px",
+  display: "flex",
+  width: "auto",
   height: "45px",
   backgroundColor: "#5913aa",
   alignItems: "center",
   justifyContent: "center",
+  paddingLeft: "20px",
+  paddingRight: "20px",
+  marginTop: "30px",
 };
