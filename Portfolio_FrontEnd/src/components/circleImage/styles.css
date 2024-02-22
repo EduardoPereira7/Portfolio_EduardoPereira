@@ -35,3 +35,33 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 1400px) {
+  .circle {
+    width: 250px;
+    height: 250px;
+  }
+  .circle-around2 {
+    width: 280px;
+    height: 280px;
+  }
+  .circle-around1 {
+    width: 310px;
+    height: 310px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 890px) {
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+  .circle-around2 {
+    width: 230px;
+    height: 230px;
+  }
+  .circle-around1 {
+    width: 260px;
+    height: 260px;
+  }
+}

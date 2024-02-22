@@ -3,12 +3,10 @@
 .presentation {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 .left {
   display: flex;
   flex-direction: column;
-  width: 65%;
 }
 .title {
   font-family: "Montserrat", sans-serif;
@@ -44,4 +42,59 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1763px) {
+  .left {
+    width: 70%;
+  }
+  .right {
+    width: auto;
+  }
+  .textPresentation {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .title {
+    font-size: 70px;
+  }
+  .subtitle {
+    font-size: 35px;
+  }
+  .developer {
+    font-size: 25px;
+  }
+  .textPresentation {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 60px;
+  }
+  .subtitle {
+    font-size: 30px;
+  }
+  .developer {
+    font-size: 20px;
+  }
+  .textPresentation {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .presentation {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .textPresentation {
+    width: 100%;
+  }
 }

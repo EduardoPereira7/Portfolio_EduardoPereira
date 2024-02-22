@@ -19,73 +19,71 @@ function App() {
   }
 
   return (
-    <>
-      <div className="bodyHome">
-        <Presentation />
-        <Divider text="Projetos" />
-        <div className="row">
-          {projects?.map(
-            (project) =>
-              project && (
-                <ProjectCard
-                  key={project.id}
-                  id={project.id}
-                  name={project.name}
-                  description={project.description}
-                  thumbnail={project.thumbnail}
-                  link={project.link}
-                  technologies={project.technologies.map(
-                    (technology) => technology.name
-                  )}
-                />
-              )
-          )}
-        </div>
-        <BtnNavigation
-          text={"Ver mais"}
-          navigation={"/projects"}
-          containerStyle={btnContainerStyle}
-          textStyle={{
-            color: "white",
-            fontSize: "17px",
-            letterSpacing: "0.5px",
-          }}
-        />
-        <br />
-        <br />
-        <Divider text="Habilidades" />
-        <div className="row">
-          {person?.technologies.map((technology) => (
-            <LanguageCard
-              key={technology.id}
-              language={technology.name}
-              level={technology.pivot.level}
-              color={technology.color}
-            />
-          ))}
-        </div>
-        <br />
-        <span className="languageNote">
-          O nível de avaliação apresentado em cada linguagem de programação é
-          referente à nota atribuída em cada UFCD na{" "}
-          <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
-            Atec
-          </a>
-          .
-        </span>
-        <br />
-        <BtnNavigation
-          text={"Ver todas as habilidades"}
-          navigation={"/skills"}
-          containerStyle={btnContainerStyle}
-          textStyle={{
-            color: "white",
-            fontSize: "17px",
-            letterSpacing: "0.5px",
-          }}
-        />
+    <div className="bodyHome">
+      <Presentation />
+      <Divider text="Projetos" />
+      <div className="row">
+        {projects?.map(
+          (project) =>
+            project && (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                name={project.name}
+                description={project.description}
+                thumbnail={project.thumbnail}
+                link={project.link}
+                technologies={project.technologies.map(
+                  (technology) => technology.name
+                )}
+              />
+            )
+        )}
       </div>
-    </>
+      <BtnNavigation
+        text={"Ver mais"}
+        navigation={"/projects"}
+        containerStyle={btnContainerStyle}
+        textStyle={{
+          color: "white",
+          fontSize: "17px",
+          letterSpacing: "0.5px",
+        }}
+      />
+      <br />
+      <br />
+      <Divider text="Habilidades" />
+      <div className="row">
+        {person?.technologies.map((technology) => (
+          <LanguageCard
+            key={technology.id}
+            language={technology.name}
+            level={technology.pivot.level}
+            color={technology.color}
+          />
+        ))}
+      </div>
+      <br />
+      <span className="languageNote">
+        O nível de avaliação apresentado em cada linguagem de programação é
+        referente à nota atribuída em cada UFCD na{" "}
+        <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
+          Atec
+        </a>
+        .
+      </span>
+      <br />
+      <BtnNavigation
+        text={"Ver todas as habilidades"}
+        navigation={"/skills"}
+        containerStyle={btnContainerStyle}
+        textStyle={{
+          color: "white",
+          fontSize: "17px",
+          letterSpacing: "0.5px",
+        }}
+      />
+    </div>
   );
 }
 
