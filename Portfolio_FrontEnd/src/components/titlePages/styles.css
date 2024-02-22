@@ -9,3 +9,12 @@
   height: 3px;
   background-color: var(--primary);
 }
+
+@media screen and (max-width: 768px) {
+  .title_pages_text {
+    font-size: 2rem;
+  }
+  .title_pages_row {
+    margin-bottom: 10px;
+  }
+}

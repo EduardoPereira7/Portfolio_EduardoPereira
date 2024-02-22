@@ -63,3 +63,21 @@
   transition: 0.3s;
   user-select: none;
 }
+
+@media screen and (max-width: 768px) {
+  .projectDetailsContainer {
+    padding: 0 2vw;
+  }
+  .projectTitle {
+    font-size: 1.7rem;
+  }
+  .projectDescription {
+    font-size: 1.1rem;
+  }
+  .usedTech {
+    font-size: 1rem;
+  }
+  .projectTag {
+    font-size: 1rem;
+  }
+}

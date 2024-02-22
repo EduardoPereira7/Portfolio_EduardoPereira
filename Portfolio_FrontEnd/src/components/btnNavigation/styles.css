@@ -22,3 +22,12 @@
   font-size: 20px;
   color: var(--white);
 }
+
+@media (max-width: 768px) {
+  .btn-navigation {
+    height: 40px;
+  }
+  .navText {
+    font-size: 16px;
+  }
+}

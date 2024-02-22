@@ -86,7 +86,7 @@
 @media screen and (max-width: 890px) {
   .presentation {
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
   }
   .left {
     width: 100%;
