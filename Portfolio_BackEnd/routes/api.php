@@ -43,3 +43,5 @@ Route::apiResource(
 );
 
 Route::post('/contact', 'ContactController@sendMail');
+
+Route::apiResource('social-networks', 'SocialNetworkController');

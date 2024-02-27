@@ -32,4 +32,9 @@ class Person extends Model
             ->withPivot('level')
             ->withTimestamps();
     }
+
+    public function socialNetworks()
+    {
+        return $this->hasMany(SocialNetwork::class);
+    }
 }
