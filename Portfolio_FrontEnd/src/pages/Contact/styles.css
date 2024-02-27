@@ -1,0 +1,100 @@
+.ContactPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4vw;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+.ContactPageContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  margin-top: 50px;
+}
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 20px;
+}
+.ContactsOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.shortInput {
+  width: 500px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  border-color: var(--primary);
+  border-width: 2px;
+  background-color: var(--white);
+}
+.longInput {
+  width: 500px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: var(--white);
+  border-color: var(--primary);
+  border-width: 2px;
+}
+.sendMessageBtn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  width: 522px;
+  transition: 0.3s;
+  font-weight: 500;
+  height: 40px;
+  outline: none;
+  margin-top: 25px;
+  font-family: "Montserrat", sans-serif;
+}
+.sendMessageBtn:hover {
+  background-color: var(--secondary);
+}
+
+.sendMessageTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.formTitle {
+  font-size: 21.5px;
+  font-weight: 500;
+  color: var(--white);
+  align-self: start;
+  margin-top: 10px;
+  padding: 10px;
+}

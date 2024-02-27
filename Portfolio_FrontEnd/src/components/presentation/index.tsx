@@ -17,7 +17,7 @@ const Presentation = () => {
         <p className="textPresentation">{person?.summary}</p>
         <BtnNavigation
           text="Contacte-me"
-          navigation="about"
+          navigation="/contact"
           containerStyle={containerStyleBtn}
           textStyle={{ fontSize: "16.5px" }}
         />

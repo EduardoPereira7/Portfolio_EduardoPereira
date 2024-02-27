@@ -51,6 +51,7 @@
   border: 0px;
   position: relative;
   overflow: hidden;
+  font-family: "Montserrat", sans-serif;
 }
 .btnOpenProject:hover {
   background: linear-gradient(to top left, transparent 50%, #451e72 50%);
