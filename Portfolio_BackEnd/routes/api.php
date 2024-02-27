@@ -41,3 +41,5 @@ Route::apiResource(
     'images',
     'ImageController'
 );
+
+Route::post('/contact', 'ContactController@sendMail');
