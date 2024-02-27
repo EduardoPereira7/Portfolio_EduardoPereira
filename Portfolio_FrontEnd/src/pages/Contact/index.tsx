@@ -1,19 +1,45 @@
+import SocialCard from "../../components/socialCard";
 import TitlePages from "../../components/titlePages";
+import { usePersonContext } from "../../contexts/PersonContext";
 import "./styles.css";
 
 const ContactPage = () => {
+  const { person } = usePersonContext();
   return (
     <div className="ContactPageContainer">
-      <TitlePages title="Contact" />
+      <TitlePages title="Contacto" />
       <div className="ContactPageContent">
         <div className="ContactsOptions">
-          <h2>Contactos:</h2>
-          <p>Phone: +55 11 9 9999-9999</p>
-          <p>Email:</p>
-          <h2>Plataformas:</h2>
-          <p>Instagram: @instagram</p>
-          <p>Facebook: @facebook</p>
-          <p>Twitter: @twitter</p>
+          <div className="ContactOption">
+            <span className="sendMessageTitle">Contactos:</span>
+            <div className="pointInfoContainer">
+              <div className="point" />
+              <span className="infoContact" data-label="Telemovel: ">
+                {" "}
+                {person?.phone}{" "}
+              </span>
+            </div>
+            <div className="pointInfoContainer">
+              <div className="point" />
+              <span className="infoContact" data-label="Email: ">
+                {" "}
+                {person?.email}
+              </span>
+            </div>
+          </div>
+          <span className="sendMessageTitle">
+            Plataformas:
+            <p className="directLinkText">Link direto</p>
+          </span>
+          <div className="ContactLinks">
+            <SocialCard
+              title={""}
+              image={""}
+              link={""}
+              backColor={""}
+              color={""}
+            />
+          </div>
         </div>
         <div className="ContactForm">
           <span className="sendMessageTitle">Enviar Mensagem:</span>
@@ -24,7 +50,7 @@ const ContactPage = () => {
             <input type="email" className="shortInput" />
             <span className="formTitle">Mensagem:</span>
             <input type="text" className="longInput" />
-            <button className="sendMessageBtn">Send</button>
+            <button className="sendMessageBtn">Enviar</button>
           </form>
         </div>
       </div>
