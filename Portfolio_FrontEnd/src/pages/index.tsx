@@ -23,22 +23,24 @@ function App() {
       <Presentation />
       <Divider text="Projetos" />
       <div className="row">
-        {projects?.map(
-          (project) =>
-            project && (
-              <ProjectCard
-                key={project.id}
-                id={project.id}
-                name={project.name}
-                description={project.description}
-                thumbnail={project.thumbnail}
-                link={project.link}
-                technologies={project.technologies.map(
-                  (technology) => technology.name
-                )}
-              />
-            )
-        )}
+        {projects
+          ?.slice(0, 5)
+          .map(
+            (project) =>
+              project && (
+                <ProjectCard
+                  key={project.id}
+                  id={project.id}
+                  name={project.name}
+                  description={project.description}
+                  thumbnail={project.thumbnail}
+                  link={project.link}
+                  technologies={project.technologies.map(
+                    (technology) => technology.name
+                  )}
+                />
+              )
+          )}
       </div>
       <BtnNavigation
         text={"Ver mais"}
