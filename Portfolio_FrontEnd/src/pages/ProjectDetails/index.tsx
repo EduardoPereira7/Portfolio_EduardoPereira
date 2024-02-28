@@ -1,16 +1,25 @@
 import { useParams } from "react-router-dom";
 import Carousel from "../../components/carousel";
+import Loading from "../../components/loading";
 import { useProjectContext } from "../../contexts/ProjectInspect";
 import { useProjectImages } from "../../hooks/useProjectImages";
 import "./styles.css";
 
 const ProjectDetailsPage: React.FC = () => {
   const { id } = useParams();
-  const { projectImages } = useProjectImages(Number(id));
+  const { projectImages, loading, error } = useProjectImages(Number(id));
   const { projectDetails } = useProjectContext();
   const paragraphs = projectDetails?.description
     .split("\n")
     .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <h1>Error: {error}</h1>;
+  }
 
   return (
     <div className="projectDetailsContainer">

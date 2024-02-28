@@ -1,3 +1,4 @@
+import Loading from "../../components/loading";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
 import "./styles.css";
@@ -6,7 +7,7 @@ const AboutMe = () => {
   const { loading, error, person } = usePersonContext();
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
   if (error) {
     return <h1>Error: {error}</h1>;

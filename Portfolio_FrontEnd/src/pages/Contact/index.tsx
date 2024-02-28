@@ -1,3 +1,4 @@
+import Loading from "../../components/loading";
 import SocialCard from "../../components/socialCard";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
@@ -5,8 +6,17 @@ import { usePlatforms } from "../../hooks/usePlatforms";
 import "./styles.css";
 
 const ContactPage = () => {
-  const { person } = usePersonContext();
+  const { person, loading, error } = usePersonContext();
   const platforms = usePlatforms(person?.id || -1);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <h1>Error: {error}</h1>;
+  }
+
   return (
     <div className="ContactPageContainer">
       <TitlePages title="Contacto" />

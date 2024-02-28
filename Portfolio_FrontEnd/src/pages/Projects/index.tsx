@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../../components/loading";
 import ProjectCardPage from "../../components/projectCardPage";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
@@ -8,7 +9,7 @@ import "./styles.css";
 const ProjectsPage: React.FC = () => {
   const { person } = usePersonContext();
   const { projects, loading, error } = useProjects(person?.id || -1);
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
   return (
     <div className="ProjectsPageContainer">

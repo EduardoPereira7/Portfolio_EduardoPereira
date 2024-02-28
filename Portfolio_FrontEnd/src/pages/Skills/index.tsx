@@ -1,4 +1,5 @@
 import LanguageCard from "../../components/LanguageCard";
+import Loading from "../../components/loading";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
 import "./styles.css";
@@ -6,7 +7,7 @@ import "./styles.css";
 const SkillsPage: React.FC = () => {
   const { person, loading, error } = usePersonContext();
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
   if (error) {
     return <h1>Error: {error}</h1>;

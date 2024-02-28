@@ -1,14 +1,23 @@
 import { usePersonContext } from "../../contexts/PersonContext";
 import BtnNavigation from "../btnNavigation";
 import Circle from "../circleImage";
+import Loading from "../loading";
 import "./styles.css";
 
 const Presentation = () => {
-  const { person } = usePersonContext();
+  const { person, loading, error } = usePersonContext();
   const firstName = person?.name.split(" ")[0];
   const paragraphs = person?.summary
     .split("\n")
     .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <h1>Error: {error}</h1>;
+  }
   return (
     <div className="presentation">
       <div className="left">

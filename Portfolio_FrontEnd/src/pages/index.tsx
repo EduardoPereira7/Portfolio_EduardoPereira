@@ -1,6 +1,7 @@
 import LanguageCard from "../components/LanguageCard";
 import BtnNavigation from "../components/btnNavigation";
 import Divider from "../components/divider";
+import Loading from "../components/loading";
 import Presentation from "../components/presentation";
 import ProjectCard from "../components/projectCard";
 import { usePersonContext } from "../contexts/PersonContext";
@@ -12,7 +13,7 @@ function App() {
   const { projects } = useProjects(person?.id || -1);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
   if (error) {
     return <h1>Error: {error}</h1>;
