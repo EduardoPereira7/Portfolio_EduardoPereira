@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import Carousel from "../../components/carousel";
-import Error from "../../components/error";
 import Loading from "../../components/loading";
 import { useProjectContext } from "../../contexts/ProjectInspect";
 import { useProjectImages } from "../../hooks/useProjectImages";
@@ -16,10 +15,6 @@ const ProjectDetailsPage: React.FC = () => {
 
   if (loading) {
     return <Loading />;
-  }
-
-  if (error) {
-    return <Error message={error} />;
   }
 
   return (
@@ -38,6 +33,7 @@ const ProjectDetailsPage: React.FC = () => {
         )}
       </div>
       <div className="project-slide">
+        {error && <h3> Erro ao carregar imagens do projeto</h3>}
         <Carousel projectImages={projectImages} />
       </div>
       <span className="projectDescription">{paragraphs}</span>
