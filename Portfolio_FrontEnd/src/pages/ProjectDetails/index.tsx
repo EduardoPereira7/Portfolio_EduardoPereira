@@ -11,7 +11,17 @@ const ProjectDetailsPage: React.FC = () => {
 
   return (
     <div className="projectDetailsContainer">
-      <span className="projectTitle">{projectDetails?.name}</span>
+      <div className="titleAndBtnContainer">
+        <span className="projectTitle">{projectDetails?.name}</span>
+        <a
+          href={projectDetails?.link}
+          target="_blank"
+          rel="noreferrer"
+          className="btnGithubLink"
+        >
+          <span className="projectLink">Abrir repositório - GitHub</span>
+        </a>
+      </div>
       <div className="project-slide">
         <Carousel projectImages={projectImages} />
       </div>
