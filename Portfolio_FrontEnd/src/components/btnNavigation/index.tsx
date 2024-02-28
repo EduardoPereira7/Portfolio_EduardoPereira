@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import BtnNavigationProps from "../../types/BtnNavigationProps";
+import BtnNavigationProps from "../../types/components/BtnNavigationProps";
 import "./styles.css";
 
 const BtnNavigation = ({

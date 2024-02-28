@@ -1,11 +1,6 @@
+import { LanguageCardProps } from "../../types/components/LanguageCardProps";
 import ProgressBar from "../progressBar";
 import "./styles.css";
-
-interface LanguageCardProps {
-  language: string;
-  level: number;
-  color: string;
-}
 
 const LanguageCard = ({ language, level, color }: LanguageCardProps) => {
   return (

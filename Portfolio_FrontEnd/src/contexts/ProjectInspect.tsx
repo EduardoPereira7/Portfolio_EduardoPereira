@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ProjectCardProps } from "../types/ProjectCardProps";
+import { ProjectCardProps } from "../types/components/ProjectCardProps";
 
 interface ProjectContextData {
   projectDetails: ProjectCardProps | null;

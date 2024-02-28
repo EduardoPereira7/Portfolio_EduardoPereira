@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useProjectContext } from "../../contexts/ProjectInspect";
-import { ProjectCardProps } from "../../types/ProjectCardProps";
+import { ProjectCardProps } from "../../types/components/ProjectCardProps";
 import Tag from "../tags";
 import "./styles.css";
 

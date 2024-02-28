@@ -1,12 +1,5 @@
+import { SocialCardProps } from "../../types/components/SocialCardProps";
 import "./styles.css";
-
-interface SocialCardProps {
-  title: string;
-  image: string;
-  link: string;
-  backColor: string;
-  color: string;
-}
 
 const SocialCard = ({
   title,
