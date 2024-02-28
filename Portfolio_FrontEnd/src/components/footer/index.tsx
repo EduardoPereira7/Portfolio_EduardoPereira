@@ -1,18 +1,9 @@
 import React from "react";
+import "./styles.css";
 
 const Footer: React.FC = () => {
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        left: "0",
-        bottom: "0",
-        width: "100%",
-        color: "white",
-        alignSelf: "flex-end",
-      }}
-    >
+    <footer className="footer">
       <p>
         © {new Date().getFullYear()} Eduardo Pereira. Todos os direitos
         reservados.
