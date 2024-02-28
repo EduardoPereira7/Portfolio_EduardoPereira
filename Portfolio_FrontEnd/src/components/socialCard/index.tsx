@@ -24,7 +24,7 @@ const SocialCard = ({
       style={{ backgroundColor: backColor }}
     >
       <img src={image} alt="image" className="logoLinks" />
-      <span className="linkTile" style={{ color: color }}>
+      <span style={{ color: color }} className="linkTile">
         {title}
       </span>
     </a>

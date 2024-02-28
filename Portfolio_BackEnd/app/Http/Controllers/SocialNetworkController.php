@@ -122,4 +122,23 @@ class SocialNetworkController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Display a listing of the resource by person_id.
+     *
+     * @param  int  $person_id
+     * @return \Illuminate\Http\Response
+     */
+    public function getByPersonId($person_id)
+    {
+        try {
+            $socialNetworks = SocialNetwork::where('person_id', $person_id)->get();
+            return response()->json($socialNetworks, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'An error occurred while trying to list the social networks.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 }

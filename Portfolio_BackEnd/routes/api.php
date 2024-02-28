@@ -45,3 +45,4 @@ Route::apiResource(
 Route::post('/contact', 'ContactController@sendMail');
 
 Route::apiResource('social-networks', 'SocialNetworkController');
+Route::get('social-networks/person/{person_id}', 'SocialNetworkController@getByPersonId');

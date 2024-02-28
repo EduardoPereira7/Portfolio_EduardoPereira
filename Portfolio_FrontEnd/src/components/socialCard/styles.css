@@ -20,4 +20,7 @@
 .linkTile {
   font-size: 20px;
   font-weight: 600;
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: none;
+  transition: 0.3s;
 }

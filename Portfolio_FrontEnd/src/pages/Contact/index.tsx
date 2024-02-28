@@ -1,10 +1,12 @@
 import SocialCard from "../../components/socialCard";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
+import { usePlatforms } from "../../hooks/usePlatforms";
 import "./styles.css";
 
 const ContactPage = () => {
   const { person } = usePersonContext();
+  const platforms = usePlatforms(person?.id || -1);
   return (
     <div className="ContactPageContainer">
       <TitlePages title="Contacto" />
@@ -27,18 +29,22 @@ const ContactPage = () => {
               </span>
             </div>
           </div>
+          <div className="separator" />
           <span className="sendMessageTitle">
-            Plataformas:
+            Perfis:
             <p className="directLinkText">Link direto</p>
           </span>
           <div className="ContactLinks">
-            <SocialCard
-              title={""}
-              image={""}
-              link={""}
-              backColor={""}
-              color={""}
-            />
+            {platforms.platforms?.map((platform) => (
+              <SocialCard
+                key={platform.id}
+                image={platform.icon}
+                color={platform.color}
+                backColor={platform.backColor}
+                link={platform.link}
+                title={platform.name}
+              />
+            ))}
           </div>
         </div>
         <div className="ContactForm">
