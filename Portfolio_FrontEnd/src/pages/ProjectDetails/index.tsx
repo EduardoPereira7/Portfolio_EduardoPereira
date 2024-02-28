@@ -8,6 +8,7 @@ const ProjectDetailsPage: React.FC = () => {
   const { id } = useParams();
   const { projectImages } = useProjectImages(Number(id));
   const { projectDetails } = useProjectContext();
+  const paragraphs = projectDetails?.description.split("\n");
 
   return (
     <div className="projectDetailsContainer">
@@ -25,7 +26,7 @@ const ProjectDetailsPage: React.FC = () => {
       <div className="project-slide">
         <Carousel projectImages={projectImages} />
       </div>
-      <span className="projectDescription">{projectDetails?.description}</span>
+      <span className="projectDescription">{paragraphs}</span>
       <div className="projectTagsContainer">
         <span className="usedTech">Tecnologias usadas:</span>
         {projectDetails?.technologies.map((technology, index) => (
