@@ -41,8 +41,13 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         try {
-            $image = Image::create($request->all());
-            return response()->json($image, 201);
+            $images = $request->all();
+            $createdImages = [];
+            foreach ($images as $imageData) {
+                $image = Image::create($imageData);
+                array_push($createdImages, $image);
+            }
+            return response()->json($createdImages, 201);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erro ao criar imagem', 'error' => $e->getMessage()], 500);
         }
