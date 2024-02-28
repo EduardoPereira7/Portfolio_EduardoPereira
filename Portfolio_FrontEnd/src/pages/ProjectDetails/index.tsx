@@ -8,7 +8,9 @@ const ProjectDetailsPage: React.FC = () => {
   const { id } = useParams();
   const { projectImages } = useProjectImages(Number(id));
   const { projectDetails } = useProjectContext();
-  const paragraphs = projectDetails?.description.split("\n");
+  const paragraphs = projectDetails?.description
+    .split("\n")
+    .map((paragraph, index) => <p key={index}>{paragraph}</p>);
 
   return (
     <div className="projectDetailsContainer">
