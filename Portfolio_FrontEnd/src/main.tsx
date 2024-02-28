@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Footer from "./components/footer/index.tsx";
 import Navbar from "./components/navBar/index.tsx";
 import { PersonProvider } from "./contexts/PersonContext.tsx";
 import { ProjectProvider } from "./contexts/ProjectInspect.tsx";
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
+          <Footer />
         </ProjectProvider>
       </PersonProvider>
     </React.StrictMode>
