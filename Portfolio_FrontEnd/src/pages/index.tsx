@@ -1,6 +1,7 @@
 import LanguageCard from "../components/LanguageCard";
 import BtnNavigation from "../components/btnNavigation";
 import Divider from "../components/divider";
+import Error from "../components/error";
 import Loading from "../components/loading";
 import Presentation from "../components/presentation";
 import ProjectCard from "../components/projectCard";
@@ -9,14 +10,22 @@ import { useProjects } from "../hooks/useProjects";
 import "../styles/index.css";
 
 function App() {
-  const { person, loading, error } = usePersonContext();
-  const { projects } = useProjects(person?.id || -1);
+  const {
+    person,
+    loading: personLoading,
+    error: personError,
+  } = usePersonContext();
+  const {
+    projects,
+    loading: projectsLoading,
+    error: projectsError,
+  } = useProjects(person?.id || -1);
 
-  if (loading) {
+  if (personLoading || projectsLoading) {
     return <Loading />;
   }
-  if (error) {
-    return <h1>Error: {error}</h1>;
+  if (personError || projectsError) {
+    return <Error message={personError ? personError : projectsError} />;
   }
 
   return (

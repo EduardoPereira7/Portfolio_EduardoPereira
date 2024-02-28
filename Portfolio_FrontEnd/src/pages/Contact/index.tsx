@@ -1,3 +1,4 @@
+import Error from "../../components/error";
 import Loading from "../../components/loading";
 import SocialCard from "../../components/socialCard";
 import TitlePages from "../../components/titlePages";
@@ -6,17 +7,23 @@ import { usePlatforms } from "../../hooks/usePlatforms";
 import "./styles.css";
 
 const ContactPage = () => {
-  const { person, loading, error } = usePersonContext();
-  const platforms = usePlatforms(person?.id || -1);
+  const {
+    person,
+    loading: personLoading,
+    error: personError,
+  } = usePersonContext();
+  const {
+    platforms,
+    loading: platformsLoading,
+    error: platformsError,
+  } = usePlatforms(person?.id || -1);
 
-  if (loading) {
+  if (personLoading || platformsLoading) {
     return <Loading />;
   }
-
-  if (error) {
-    return <h1>Error: {error}</h1>;
+  if (personError || platformsError) {
+    return <Error message={personError ? personError : platformsError} />;
   }
-
   return (
     <div className="ContactPageContainer">
       <TitlePages title="Contacto" />
@@ -45,7 +52,7 @@ const ContactPage = () => {
             <p className="directLinkText">Link direto</p>
           </span>
           <div className="ContactLinks">
-            {platforms.platforms?.map((platform) => (
+            {platforms?.map((platform) => (
               <SocialCard
                 key={platform.id}
                 image={platform.icon}

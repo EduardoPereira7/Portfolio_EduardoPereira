@@ -1,3 +1,4 @@
+import Error from "../../components/error";
 import Loading from "../../components/loading";
 import TitlePages from "../../components/titlePages";
 import { usePersonContext } from "../../contexts/PersonContext";
@@ -10,7 +11,7 @@ const AboutMe = () => {
     return <Loading />;
   }
   if (error) {
-    return <h1>Error: {error}</h1>;
+    return <Error message={error} />;
   }
 
   const paragraphs = person?.about

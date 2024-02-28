@@ -1,4 +1,5 @@
 import React from "react";
+import Error from "../../components/error";
 import Loading from "../../components/loading";
 import ProjectCardPage from "../../components/projectCardPage";
 import TitlePages from "../../components/titlePages";
@@ -7,10 +8,23 @@ import { useProjects } from "../../hooks/useProjects";
 import "./styles.css";
 
 const ProjectsPage: React.FC = () => {
-  const { person } = usePersonContext();
-  const { projects, loading, error } = useProjects(person?.id || -1);
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+  const {
+    person,
+    loading: personLoading,
+    error: personError,
+  } = usePersonContext();
+  const {
+    projects,
+    loading: projectsLoading,
+    error: projectsError,
+  } = useProjects(person?.id || -1);
+
+  if (personLoading || projectsLoading) {
+    return <Loading />;
+  }
+  if (personError || projectsError) {
+    return <Error message={personError ? personError : projectsError} />;
+  }
   return (
     <div className="ProjectsPageContainer">
       <TitlePages title="Projetos" />

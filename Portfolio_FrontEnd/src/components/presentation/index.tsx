@@ -1,6 +1,7 @@
 import { usePersonContext } from "../../contexts/PersonContext";
 import BtnNavigation from "../btnNavigation";
 import Circle from "../circleImage";
+import Error from "../error";
 import Loading from "../loading";
 import "./styles.css";
 
@@ -16,7 +17,7 @@ const Presentation = () => {
   }
 
   if (error) {
-    return <h1>Error: {error}</h1>;
+    return <Error message={error} />;
   }
   return (
     <div className="presentation">

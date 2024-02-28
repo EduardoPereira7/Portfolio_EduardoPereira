@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import Carousel from "../../components/carousel";
+import Error from "../../components/error";
 import Loading from "../../components/loading";
 import { useProjectContext } from "../../contexts/ProjectInspect";
 import { useProjectImages } from "../../hooks/useProjectImages";
@@ -18,7 +19,7 @@ const ProjectDetailsPage: React.FC = () => {
   }
 
   if (error) {
-    return <h1>Error: {error}</h1>;
+    return <Error message={error} />;
   }
 
   return (
