@@ -25,12 +25,12 @@ const SkillsPage: React.FC = () => {
         ))}
       </div>
       <span className="languageNoteSkills">
-        O nível de avaliação apresentado em cada linguagem de programação é
-        referente à nota atribuída em cada UFCD na{" "}
-        <a href="https://www.atec.pt/" style={{ color: "#fff" }}>
-          Atec
-        </a>
-        .
+        O nível de avaliação apresentado em cada linguagem de programação é uma
+        representação subjetiva do meu conhecimento e habilidades.
+      </span>
+      <span className="languageNoteSkills" style={{ marginTop: 10 }}>
+        {"Iniciante (0-30);"} {"Intermediário (31-60);"} {"Avançado (61-90);"}{" "}
+        {"Especialista (91-100)."}
       </span>
     </div>
   );

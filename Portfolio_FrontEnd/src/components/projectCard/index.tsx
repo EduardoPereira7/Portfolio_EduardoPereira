@@ -17,7 +17,13 @@ const ProjectCard = (props: ProjectCardProps) => {
 
   return (
     <div className="projectCardContainer">
-      <img src={props.thumbnail} alt="" className="projectCardImg" />
+      <div className="projectCardImgContainer">
+        <img
+          src={props.thumbnail}
+          alt="projectImage"
+          className="projectCardImg"
+        />
+      </div>
       <span className="projectName">{props.name}</span>
       <div className="divider" />
       <span className="description">{truncatedDescription}</span>
