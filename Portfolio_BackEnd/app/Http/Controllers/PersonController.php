@@ -53,8 +53,6 @@ class PersonController extends Controller
             $person->email = $request->email;
             $person->photo = $request->photo;
             $person->phone = $request->phone;
-            $person->linkedin = $request->linkedin;
-            $person->github = $request->github;
             $person->certifications = $request->certifications;
             $person->languages = $request->languages;
             $person->save();

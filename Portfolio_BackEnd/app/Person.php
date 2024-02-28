@@ -15,8 +15,6 @@ class Person extends Model
         'email',
         'photo',
         'phone',
-        'linkedin',
-        'github',
         'certifications',
         'languages'
     ];

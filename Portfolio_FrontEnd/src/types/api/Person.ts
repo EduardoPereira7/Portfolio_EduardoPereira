@@ -9,8 +9,6 @@ export interface Person {
   email: string;
   photo: string;
   phone: string;
-  linkedin: string;
-  github: string;
   certifications: string;
   languages: string;
   created_at: string;

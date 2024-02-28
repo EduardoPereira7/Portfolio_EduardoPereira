@@ -22,8 +22,6 @@ class CreatePeopleTable extends Migration
             $table->string('email');
             $table->string('photo');
             $table->string('phone');
-            $table->string('linkedin');
-            $table->string('github');
             $table->string('certifications');
             $table->string('languages');
             $table->timestamps();
