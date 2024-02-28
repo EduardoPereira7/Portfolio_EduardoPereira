@@ -85,6 +85,7 @@
   transition: 0.3s;
   user-select: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
