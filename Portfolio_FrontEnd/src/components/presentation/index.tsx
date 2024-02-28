@@ -6,6 +6,9 @@ import "./styles.css";
 const Presentation = () => {
   const { person } = usePersonContext();
   const firstName = person?.name.split(" ")[0];
+  const paragraphs = person?.summary
+    .split("\n")
+    .map((paragraph, index) => <p key={index}>{paragraph}</p>);
   return (
     <div className="presentation">
       <div className="left">
@@ -14,7 +17,7 @@ const Presentation = () => {
         <div className="developerContainer">
           <span className="developer">{["< / ", person?.status, " >"]}</span>
         </div>
-        <p className="textPresentation">{person?.summary}</p>
+        <p className="textPresentation">{paragraphs}</p>
         <BtnNavigation
           text="Contacte-me"
           navigation="/contact"
