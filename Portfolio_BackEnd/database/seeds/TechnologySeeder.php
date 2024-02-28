@@ -17,7 +17,7 @@ class TechnologySeeder extends Seeder
             'Objective-C', 'Perl', 'F#', 'Assembly', 'PowerShell', 'ASP.NET', 'Visual Basic', 'Dart', 'Bootstrap', 'Laravel', 'Outras'
         ];
         $colors = [
-            '#4F5D95', '#F0DB4F', '#E44D26', '#264DE4', '#A4A9B7', '#239120', '#F7DF1E', '#007396', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26', '#F7DF1E', '#3776AB', '#306998', '#E34F26'
+            '#777BB4', '#F7DF1E', '#E34F26', '#1572B6', '#239120', '#00599C', '#61DAFB', '#61DAFB', '#007396', '#3776AB', '#CC342D', '#FFAC45', '#0095D5', '#DE3A2C', '#00ADD8', '#3178C6', '#CC2929', '#A8B9CC', '#39457E', '#002395 ', '#002395', '#5A5255', '#012456', '#5A5255', '#0175C2', '#7952B3', '#F7DF1E', '#FF2D20', '#000000'
         ];
 
         foreach ($technologies as $technology) {

@@ -9,6 +9,7 @@
   border-bottom: 4px solid var(--primary);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+  justify-content: space-between;
 }
 .projectCardImg {
   width: 250px;
@@ -21,6 +22,8 @@
   font-size: 18px;
   font-weight: bold;
   margin-top: 14px;
+
+  text-align: center;
 }
 .divider {
   width: 70%;
