@@ -54,7 +54,7 @@ function App() {
       <br />
       <Divider text="Habilidades" />
       <div className="row">
-        {person?.technologies.map((technology) => (
+        {person?.technologies.slice(0, 5).map((technology) => (
           <LanguageCard
             key={technology.id}
             language={technology.name}

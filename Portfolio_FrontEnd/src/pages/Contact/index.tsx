@@ -55,7 +55,7 @@ const ContactPage = () => {
             <span className="formTitle">Email:</span>
             <input type="email" className="shortInput" />
             <span className="formTitle">Mensagem:</span>
-            <input type="text" className="longInput" />
+            <textarea className="longInput" />
             <button className="sendMessageBtn">Enviar</button>
           </form>
         </div>
