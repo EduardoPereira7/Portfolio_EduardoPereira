@@ -63,20 +63,23 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         try {
-            $project = new Project();
-            $project->name = $request->name;
-            $project->person_id = $request->person_id;
-            $project->description = $request->description;
-            $project->link = $request->link;
-            $project->thumbnail = $request->thumbnail;
-            $project->save();
+            foreach ($request->all() as $req) {
+                $project = new Project();
+                $project->name = $req['name'];
+                $project->person_id = $req['person_id'];
+                $project->description = $req['description'];
+                $project->link = $req['link'];
+                $project->thumbnail = $req['thumbnail'];
+                $project->save();
 
-            $project->technologies()->sync($request->technologies);
-            return response()->json($project->load('technologies'), 201);
+                $project->technologies()->sync($req['technologies']);
+            }
+            return response()->json(['message' => 'Projetos criados com sucesso'], 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao criar projeto', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Erro ao criar projetos', 'error' => $e->getMessage()], 500);
         }
     }
+
 
     /**
      * Display the specified resource.
