@@ -10,11 +10,10 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ projectImages }) => {
   const [current, setCurrent] = useState(0);
-  const [images, setImages] = useState(
-    new Array(projectImages.length).fill(null)
+  const [preloadedImages, setPreloadedImages] = useState(
+    Array(projectImages.length).fill(null)
   );
   const [loading, setLoading] = useState(true);
-
   const MAX_NUM_DISPLAY = 5;
 
   const getDisplayNumbers = () => {
@@ -24,7 +23,6 @@ const Carousel: React.FC<CarouselProps> = ({ projectImages }) => {
     let start = Math.max(current - Math.floor(MAX_NUM_DISPLAY / 2), 0);
     let end = Math.min(start + MAX_NUM_DISPLAY, totalImages);
 
-    // Adjust the start/end values if the last number is selected
     if (end === totalImages && start > 0) {
       start = Math.max(end - MAX_NUM_DISPLAY, 0);
     }
@@ -37,18 +35,24 @@ const Carousel: React.FC<CarouselProps> = ({ projectImages }) => {
   };
 
   useEffect(() => {
-    setLoading(true);
-    const img = new Image();
-    img.src = projectImages[current].link;
-    img.onload = () => {
-      setImages((images) => {
-        const newImages = [...images];
-        newImages[current] = img.src;
-        return newImages;
-      });
+    const preloadedImages = projectImages.map((image) => {
+      const img = new Image();
+      img.src = image.link;
+      return img;
+    });
+
+    Promise.all(
+      preloadedImages.map(
+        (img) =>
+          new Promise((resolve) => {
+            img.onload = resolve;
+          })
+      )
+    ).then(() => {
+      setPreloadedImages(preloadedImages);
       setLoading(false);
-    };
-  }, [current, projectImages]);
+    });
+  }, [projectImages]);
 
   const nextSlide = () => {
     setCurrent(current === projectImages.length - 1 ? 0 : current + 1);
@@ -69,7 +73,11 @@ const Carousel: React.FC<CarouselProps> = ({ projectImages }) => {
           {loading ? (
             <div className="loading_img">Loading...</div>
           ) : (
-            <img src={images[current]} alt="Carousel Image" className="image" />
+            <img
+              src={preloadedImages[current].src}
+              alt="Carousel Image"
+              className="image"
+            />
           )}
         </div>
       </div>
