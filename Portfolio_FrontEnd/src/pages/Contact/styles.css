@@ -155,6 +155,14 @@
   margin-bottom: 20px;
 }
 
+.apiMessage {
+  color: green;
+}
+
+.errorMessage {
+  color: red;
+}
+
 @media screen and (max-width: 1024px) {
   .ContactPageContent {
     flex-direction: column;

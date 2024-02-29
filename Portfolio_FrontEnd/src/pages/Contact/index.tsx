@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { sendMessage } from "../../api/postMessage";
 import Error from "../../components/error";
 import Loading from "../../components/loading";
 import SocialCard from "../../components/socialCard";
@@ -17,13 +19,34 @@ const ContactPage = () => {
     loading: platformsLoading,
     error: platformsError,
   } = usePlatforms(person?.id || -1);
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [apiMessage, setApiMessage] = useState("");
+  const [error, setError] = useState("");
   if (personLoading || platformsLoading) {
     return <Loading />;
   }
   if (personError || platformsError) {
     return <Error message={personError ? personError : platformsError} />;
   }
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setError("");
+    if (!name || !email || !subject || !message)
+      return setError("Preencha todos os campos");
+    try {
+      const msg = await sendMessage(name, email, subject, message);
+      setApiMessage(msg);
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } catch (error: string | any) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div className="ContactPageContainer">
       <TitlePages title="Contacto" />
@@ -66,14 +89,39 @@ const ContactPage = () => {
         </div>
         <div className="ContactForm">
           <span className="sendMessageTitle">Enviar Mensagem:</span>
-          <form className="Form">
+          {apiMessage && <span className="apiMessage">{apiMessage}</span>}
+          {error && <span className="errorMessage">{error}</span>}
+          <form className="Form" onSubmit={handleSubmit}>
             <span className="formTitle">Nome:</span>
-            <input type="text" className="shortInput" />
+            <input
+              type="text"
+              className="shortInput"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <span className="formTitle">Email:</span>
-            <input type="email" className="shortInput" />
+            <input
+              type="email"
+              className="shortInput"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span className="formTitle">Assunto:</span>
+            <input
+              type="text"
+              className="shortInput"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
             <span className="formTitle">Mensagem:</span>
-            <textarea className="longInput" />
-            <button className="sendMessageBtn">Enviar</button>
+            <textarea
+              className="longInput"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <button type="submit" className="sendMessageBtn">
+              Enviar
+            </button>
           </form>
         </div>
       </div>
