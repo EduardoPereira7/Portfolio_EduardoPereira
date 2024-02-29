@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://13.39.162.91/api";
+const baseURL = "https://butterflyloja.pt/api";
 
 export const getProjects = async (personId: number) => {
   try {
