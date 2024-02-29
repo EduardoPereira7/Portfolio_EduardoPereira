@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://127.0.0.1:8000/api";
+const baseURL = "http://13.39.162.91/api";
 
 export const getProjectImages = async (projectId: number) => {
   try {
