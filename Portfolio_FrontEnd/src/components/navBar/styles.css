@@ -63,7 +63,13 @@
   .navigation {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     gap: 10px;
+    justify-content: center;
+  }
+
+  .navigation > * {
+    flex-basis: calc(50% - 10px);
+    display: flex;
+    justify-content: center;
   }
 }
