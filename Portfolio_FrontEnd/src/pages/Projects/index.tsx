@@ -29,9 +29,11 @@ const ProjectsPage: React.FC = () => {
     <div className="ProjectsPageContainer">
       <TitlePages title="Projetos" />
       <div className="projectPage_projects">
-        {projects?.map((project) => (
-          <ProjectCardPage project={project} key={project.id} />
-        ))}
+        {projects
+          ?.sort((a, b) => b.id - a.id)
+          .map((project) => (
+            <ProjectCardPage project={project} key={project.id} />
+          ))}
       </div>
     </div>
   );

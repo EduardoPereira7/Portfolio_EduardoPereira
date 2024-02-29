@@ -34,7 +34,8 @@ function App() {
       <Divider text="Projetos" />
       <div className="row">
         {projects
-          ?.slice(0, 6)
+          ?.sort((a, b) => b.id - a.id)
+          .slice(0, 6)
           .map(
             (project) =>
               project && (
