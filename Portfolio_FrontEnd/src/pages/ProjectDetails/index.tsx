@@ -21,7 +21,7 @@ const ProjectDetailsPage: React.FC = () => {
     <div className="projectDetailsContainer">
       <div className="titleAndBtnContainer">
         <span className="projectTitle">{projectDetails?.name}</span>
-        {projectDetails?.link === "" ? null : (
+        {projectDetails?.link ? (
           <a
             href={projectDetails?.link}
             target="_blank"
@@ -30,7 +30,7 @@ const ProjectDetailsPage: React.FC = () => {
           >
             <span className="projectLink">Abrir repositório - GitHub</span>
           </a>
-        )}
+        ) : null}
       </div>
       <div className="project-slide">
         {error && <h3> Erro ao carregar imagens do projeto</h3>}
